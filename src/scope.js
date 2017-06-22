@@ -2,6 +2,8 @@
 
 var _ = require('lodash');
 
+function initWatchVal(){ }
+
 function Scope(){
   this.$$watchers = [];
 }
@@ -9,7 +11,8 @@ function Scope(){
 Scope.prototype.$watch = function(watchFn, listenerFn){
   var watcher = {
     watchFn: watchFn,
-    listenerFn: listenerFn
+    listenerFn: listenerFn,
+    last: initWatchVal
   };
   this.$$watchers.push(watcher);
 };
